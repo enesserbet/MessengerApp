@@ -104,9 +104,9 @@ public class LoginActivity extends AppCompatActivity {
                 String userType = "" + snapshot.child("userType").getValue();
 
                 if (userType.equals("user")) {
-                    startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                    startActivity(new Intent(LoginActivity.this, DashboardUserActivity.class));
                 } else if (userType.equals("admin")) {
-                    startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                    startActivity(new Intent(LoginActivity.this, DashboardUserActivity.class));
                     finish();
                 }
             }
