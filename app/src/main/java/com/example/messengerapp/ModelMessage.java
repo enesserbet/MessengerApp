@@ -2,13 +2,13 @@ package com.example.messengerapp;
 
 public class ModelMessage {
     String id, message, uid;
-    long timestamp;
+    String timestamp;
 
     public ModelMessage() {
 
     }
 
-    public ModelMessage(String id, String message, String uid, long timestamp) {
+    public ModelMessage(String id, String message, String uid, String  timestamp) {
         this.id = id;
         this.message = message;
         this.uid = uid;
@@ -39,11 +39,11 @@ public class ModelMessage {
         this.uid = uid;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

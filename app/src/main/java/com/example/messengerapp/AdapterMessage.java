@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.messengerapp.databinding.RowCategoryBinding;
-import com.google.firebase.database.core.Context;
+
+import com.example.messengerapp.databinding.RowMessageBinding;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.HolderMe
     private DashboardUserActivity context;
     private ArrayList<ModelMessage> messageArrayList;
 
-    private RowCategoryBinding binding;
+    private RowMessageBinding binding;
 
     public AdapterMessage(DashboardUserActivity context, ArrayList<ModelMessage> messageArrayList) {
         this.context = context;
@@ -29,7 +29,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.HolderMe
     @NonNull
     @Override
     public HolderMessage onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding = RowCategoryBinding.inflate(LayoutInflater.from(context), parent, false);
+        binding = RowMessageBinding.inflate(LayoutInflater.from(context), parent, false);
         return new HolderMessage(binding.getRoot());
     }
 
@@ -39,15 +39,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.HolderMe
         String id = model.getId();
         String message = model.getMessage();
         String uid = model.getUid();
-        long timestamp = model.getTimestamp();
+        String timestamp = model.getTimestamp();
 
         holder.categroyTv.setText(message);
-        holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
     @Override
@@ -58,12 +52,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.HolderMe
     class HolderMessage extends RecyclerView.ViewHolder {
 
         TextView categroyTv;
-        ImageButton deleteBtn;
         public HolderMessage(@NonNull View itemView) {
             super(itemView);
 
             categroyTv = binding.categoryTv;
-            deleteBtn = binding.deleteBtn;
+
         }
     }
 }

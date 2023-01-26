@@ -74,9 +74,9 @@ public class DashboardUserActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 messageArrayList.clear();
                 for (DataSnapshot ds: snapshot.getChildren()){
-                    ModelMessage model = ds.getValue(ModelMessage.class);
+                    ModelMessage modelMessage = ds.getValue(ModelMessage.class);
 
-                    messageArrayList.add(model);
+                    messageArrayList.add(modelMessage);
                 }
                 adapterMessage = new AdapterMessage(DashboardUserActivity.this,messageArrayList);
                 binding.categoryiesRv.setAdapter(adapterMessage);
@@ -88,6 +88,8 @@ public class DashboardUserActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 
     private String text = "";
@@ -108,10 +110,10 @@ public class DashboardUserActivity extends AppCompatActivity {
 
         long timestamp = System.currentTimeMillis();
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("id", timestamp);
-        hashMap.put("message", text);
-        hashMap.put("uid", firebaseAuth.getUid());
-        hashMap.put("timestamp" ,timestamp);
+        hashMap.put("id", "" + timestamp);
+        hashMap.put("message","" + text);
+        hashMap.put("uid", "" + firebaseAuth.getUid());
+        hashMap.put("timestamp" , "" + timestamp);
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Messages");
         ref.child("" + timestamp)

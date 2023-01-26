@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void updateAccountInfo() {
         progressDialog.setMessage("Saving user info...");
 
-        String timestamp = String.valueOf(System.currentTimeMillis());
+        long timestamp = System.currentTimeMillis();
         String uid = firebaseAuth.getUid();
 
         HashMap<String, Object> hashMap = new HashMap<>();
