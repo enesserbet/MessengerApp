@@ -1,19 +1,18 @@
 package com.example.messengerapp;
 
-public class ModelMessage {
+public class ModelMessage2 {
     String id, message, uid, userType;
     String timestamp;
 
-    public ModelMessage() {
-
+    public ModelMessage2() {
     }
 
-    public ModelMessage(String id, String message, String uid, String  timestamp, String userType) {
+    public ModelMessage2(String id, String message, String uid, String userType, String timestamp) {
         this.id = id;
         this.message = message;
         this.uid = uid;
-        this.timestamp = timestamp;
         this.userType = userType;
+        this.timestamp = timestamp;
     }
 
     public String getId() {
@@ -40,19 +39,19 @@ public class ModelMessage {
         this.uid = uid;
     }
 
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-
     public String getUserType() {
         return userType;
     }
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 }

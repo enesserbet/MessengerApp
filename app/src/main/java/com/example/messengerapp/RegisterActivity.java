@@ -104,19 +104,19 @@ public class RegisterActivity extends AppCompatActivity {
         String uid = firebaseAuth.getUid();
 
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("uid", uid);
-        hashMap.put("email", email);
-        hashMap.put("name", name);
+        hashMap.put("uid", "" + uid);
+        hashMap.put("email","" + email);
+        hashMap.put("name", "" + name);
         hashMap.put("profilImage", "");
         hashMap.put("userType", "user");
-        hashMap.put("timestamp", timestamp);
+        hashMap.put("timestamp" , "" + timestamp);
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
         ref.child(uid).setValue(hashMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, DashboardUserActivity.class));
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {

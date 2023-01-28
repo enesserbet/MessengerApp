@@ -1,9 +1,9 @@
 package com.example.messengerapp;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.messengerapp.databinding.RowMessageBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -18,6 +25,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.HolderMe
 
     private DashboardUserActivity context;
     private ArrayList<ModelMessage> messageArrayList;
+
 
     private RowMessageBinding binding;
 
@@ -41,8 +49,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.HolderMe
         String uid = model.getUid();
         String timestamp = model.getTimestamp();
 
+
         holder.categroyTv.setText(message);
+
     }
+
 
     @Override
     public int getItemCount() {
@@ -52,10 +63,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.HolderMe
     class HolderMessage extends RecyclerView.ViewHolder {
 
         TextView categroyTv;
+        //TextView categroyTv2;
+
         public HolderMessage(@NonNull View itemView) {
             super(itemView);
 
+
             categroyTv = binding.categoryTv;
+            //categroyTv2 = binding.categoryTv2;
 
         }
     }

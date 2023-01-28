@@ -15,12 +15,12 @@ import java.util.ArrayList;
 
 public class AdapterMessage2 extends RecyclerView.Adapter<AdapterMessage2.HolderMessage2> {
     private DashboardUserActivity context;
-    private ArrayList<ModelMessage> messageArrayList;
+    private ArrayList<ModelMessage2> message2ArrayList;
     private RowMessageOpponentBinding binding;
 
-    public AdapterMessage2(DashboardUserActivity context, ArrayList<ModelMessage> messageArrayList) {
+    public AdapterMessage2(DashboardUserActivity context, ArrayList<ModelMessage2> message2ArrayList) {
         this.context = context;
-        this.messageArrayList = messageArrayList;
+        this.message2ArrayList = message2ArrayList;
     }
 
     @NonNull
@@ -32,18 +32,19 @@ public class AdapterMessage2 extends RecyclerView.Adapter<AdapterMessage2.Holder
 
     @Override
     public void onBindViewHolder(@NonNull HolderMessage2 holder, int position) {
-        ModelMessage model = messageArrayList.get(position);
+        ModelMessage2 model = message2ArrayList.get(position);
         String id = model.getId();
         String message = model.getMessage();
         String uid = model.getUid();
         String timestamp = model.getTimestamp();
+        String userType = model.getUserType();
 
         holder.messageopponent.setText(message);
     }
 
     @Override
     public int getItemCount() {
-        return messageArrayList.size();
+        return message2ArrayList.size();
     }
 
 
